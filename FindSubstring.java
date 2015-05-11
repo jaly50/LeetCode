@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+//第一反应是  l 全排列，然后s.isIndexOf(), it would be slow is l is long
+//Best solution uses hashtable, and time complexity is<= s*len(l)
 
 
 public class FindSubstring {
