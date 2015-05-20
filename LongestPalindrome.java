@@ -1,10 +1,20 @@
 /*
  * LeetCode 45 Longest Palindromic Substring 
- * Ö÷ÒªµÄ·½·¨ÊÇ×Ô¼ºÏë³öÀ´µÄ¡£µ«ÊÇÃ»ÓĞÓÅ»¯µ¼ÖÂÊ±¼ä¸´ÔÓ¶È±ä³É o(n^3)
- * ÓÅ»¯·½·¨£º²»ÓÃ¼ÇÂ¼×Ö´®£¬Ö»ĞèÒª¼ÇÂ¼×Ó´®µÄÆğÊ¼Î»ÖÃ¡£
- * ×îºóÊ±¼ä¸´ÔÓ¶È£ºo(n^2)
- * o£¨n£©·½·¨µÄ²Î¿¼ÎÄÏ×£ºhttp://leetcode.com/2011/11/longest-palindromic-substring-part-ii.html
+ * ä¸»è¦çš„æ–¹æ³•æ˜¯è‡ªå·±æƒ³å‡ºæ¥çš„ã€‚ä½†æ˜¯æ²¡æœ‰ä¼˜åŒ–å¯¼è‡´æ—¶é—´å¤æ‚åº¦å˜æˆ o(n^3)
+ * ä¼˜åŒ–æ–¹æ³•ï¼šä¸ç”¨è®°å½•å­—ä¸²ï¼Œåªéœ€è¦è®°å½•å­ä¸²çš„èµ·å§‹ä½ç½®ã€‚
+ * æœ€åæ—¶é—´å¤æ‚åº¦ï¼šo(n^2)
+ * oï¼ˆnï¼‰æ–¹æ³•çš„å‚è€ƒæ–‡çŒ®ï¼šhttp://leetcode.com/2011/11/longest-palindromic-substring-part-ii.html
  * date:2014/9/29
+ 
+ 
+ 
+ date 5/20/2015 é‡æ–°é˜…è¯»ã€‚
+ http://articles.leetcode.com/2011/11/longest-palindromic-substring-part-i.html
+ ä¸‰ç§åšæ³•ï¼š
+ 1. o(n^3), éå†æ‰€æœ‰å¯èƒ½çš„èµ·ç‚¹å’Œç»ˆç‚¹ã€‚brute force
+ 2. o(n^2) space o(n^2) ç”¨dp, f[i][i]= true; f[i][i+1] =true if s[i]=s[i+1]; ç„¶åå†ä¸¤é‡å¾ªç¯æ‰©å±•ä¹‹ã€‚
+ 3. o(n^2) ä»¥ä¸­å¿ƒæ‰©å±•ã€‚ try(s, i,i) and try(s,i,i+1)   space(o1) è¯•ä¸€ä¸‹å¯ä»¥æ‰©å±•å¤šå°‘ã€‚
+ 4. o(n^2) f[i] è¡¨ç¤º ä»¥iä¸ºç»ˆç‚¹ï¼Œæœ€é•¿æ˜¯å¤šé•¿ï¼› è®°å½•maxlen ,åé¢åªè¦è¯•  try(i-maxLen, i), if true, maxlen++.
  */
 import java.util.Arrays;
 
@@ -14,7 +24,7 @@ public class LongestPalindrome {
      static String maxS;
  	 static int  begin;
  	 
- 	 // °ÑËùÓĞµÄ»ØÎÄ¶¼±ä³ÉÆæÊı¸ñÊ½
+ 	 // æŠŠæ‰€æœ‰çš„å›æ–‡éƒ½å˜æˆå¥‡æ•°æ ¼å¼
  	public static String longestPalindrome2(String s) { 
  		if (s.length() <=1) return s;
  		StringBuilder st = new StringBuilder("#");
