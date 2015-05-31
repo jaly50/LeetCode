@@ -17,7 +17,7 @@ public class Reverse {
 		 return y;
 	 }
 	 /*  Think about overflow problem.  5/28/2015*/
-	     public  static int reverse(int x) {
+	     public  static int reverse1(int x) {
         int result = 0, current =0;
         while (x!=0) {
             int tail = x % 10;
