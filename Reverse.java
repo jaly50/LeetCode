@@ -16,6 +16,22 @@ public class Reverse {
 	    }
 		 return y;
 	 }
+	 /*  Think about overflow problem.  5/28/2015*/
+	     public  static int reverse(int x) {
+        int result = 0, current =0;
+        while (x!=0) {
+            int tail = x % 10;
+            current = result *10 +tail;
+            System.out.println(current+" <- current, tail: "+tail+" x:"+x);
+            if ((current -tail )/10 != result) {
+                return 0;
+            }
+            result = current;
+            x = x/10;
+        }
+        return result;
+        
+    }
 	 public static void main(String args[]) {
 		 int x= 1000000003;
 		 System.out.println(reverse(x));
