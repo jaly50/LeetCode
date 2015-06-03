@@ -11,8 +11,38 @@ import java.util.Map;
 
 
 public class Sum3 {
-	//ÒªĞ´³öbugfreeµÄ´úÂëÓĞµãÄÑ
-	//ÕâÀïÈİÒ×·¸µÄ°üÀ¨ Ôì³Éduplicate, ÒÔ¼°Ä³¸öÊıÖØ¸´ÀûÓÃÁË
+	// Scarlett Chen
+	// 6/3/2015 Wed 7:32 PM
+	    // better than my though
+    // time complexity is n^2 as well, and it doesn't use extra space like map
+    public List<List<Integer>> threeSum(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        for (int i =0; i< nums.length-2; i++) {
+            if (i==0 || nums[i] !=nums[i-1]) {
+                int lo = i+1, hi = nums.length-1;
+                while (lo < hi) {
+                    if (nums[i] + nums[lo] +nums[hi] ==0) {
+                        res.add(Arrays.asList(nums[i], nums[lo], nums[hi]));
+                        while (lo < nums.length-1 && nums[lo]==nums[lo+1]) lo++;
+                        while (hi >0 && nums[hi] == nums[hi-1]) hi--;
+                        lo++; hi--;
+                    }
+                    else if (0 - (nums[i] + nums[lo]) < nums[hi] ) {
+                        hi--;
+                    }
+                    else lo++;
+                }
+            }
+        }
+        return res;
+        
+    }
+	
+	
+	
+	//è¦å†™å‡ºbugfreeçš„ä»£ç æœ‰ç‚¹éš¾
+	//è¿™é‡Œå®¹æ˜“çŠ¯çš„åŒ…æ‹¬ é€ æˆduplicate, ä»¥åŠæŸä¸ªæ•°é‡å¤åˆ©ç”¨äº†
 	//
 	 public static List<List<Integer>> threeSum(int[] num) {
 		 List<List<Integer>> list = new   ArrayList<List<Integer>>(); 
@@ -49,16 +79,16 @@ public class Sum3 {
 		 return list;
 	    }
 	public static void main(String[] args) {
-		// Ã¿¸ö²âÊÔÊı¾İ¶¼ÊÇÎÒÔøÓĞ¹ıµÄbug
+		// æ¯ä¸ªæµ‹è¯•æ•°æ®éƒ½æ˜¯æˆ‘æ›¾æœ‰è¿‡çš„bug
 		int[] num = new int[]{-1,0,1,2,-1,-4};
 		 System.out.println(threeSum(num));
-		 //Ô¤·Àduplicate,²»½öÒª´Ói¿ªÊ¼£¬´Ój(Ò²¾ÍÊÇµÚ¶şÊı×Ö£©Ò²ÒªÉèÖÃ
+		 //é¢„é˜²duplicate,ä¸ä»…è¦ä»iå¼€å§‹ï¼Œä»j(ä¹Ÿå°±æ˜¯ç¬¬äºŒæ•°å­—ï¼‰ä¹Ÿè¦è®¾ç½®
 		 System.out.println(threeSum(new int[]{0,0,0,0}));
-		 //µÚÈı¸öÊıÓÉmapÖĞÌá³ö£¬¿ÉÄÜÔÚµÚÒ»¶ş¸öÊıÖĞÒÑ¾­ÓÃ¹ı£¬ËùÒÔ±ØĞë±£Ö¤ÄÇ¸öÊıÖÁ¸öÓĞÁ½¸ö²ÅĞĞ
+		 //ç¬¬ä¸‰ä¸ªæ•°ç”±mapä¸­æå‡ºï¼Œå¯èƒ½åœ¨ç¬¬ä¸€äºŒä¸ªæ•°ä¸­å·²ç»ç”¨è¿‡ï¼Œæ‰€ä»¥å¿…é¡»ä¿è¯é‚£ä¸ªæ•°è‡³ä¸ªæœ‰ä¸¤ä¸ªæ‰è¡Œ
 		 System.out.println(threeSum(new int[]{1,2,-2,-1}));
-		 //0ÊÇÌØÊâÇé¿ö£ºµÚÈı¸öÊıÔÚmapÖĞ..Èç¹ûÈı¸öÊı¶¼Ò»ÑùµÄ»°£¬±ØĞë±£Ö¤¸ÃÊıÖÁÉÙÓĞ3¸ö¡£½öÊÊÓÃÓÚ0
+		 //0æ˜¯ç‰¹æ®Šæƒ…å†µï¼šç¬¬ä¸‰ä¸ªæ•°åœ¨mapä¸­..å¦‚æœä¸‰ä¸ªæ•°éƒ½ä¸€æ ·çš„è¯ï¼Œå¿…é¡»ä¿è¯è¯¥æ•°è‡³å°‘æœ‰3ä¸ªã€‚ä»…é€‚ç”¨äº0
 		 System.out.println(threeSum(new int[]{-1,0,1,0}));
-		 //Êı×Ölist±ØĞë±£³ÖÉıĞò£¬ËùÒÔÒªÈ·¶¨µÚÈı¸öÊı±ÈµÚ¶ş¸öÊı×Ö´ó
+		 //æ•°å­—listå¿…é¡»ä¿æŒå‡åºï¼Œæ‰€ä»¥è¦ç¡®å®šç¬¬ä¸‰ä¸ªæ•°æ¯”ç¬¬äºŒä¸ªæ•°å­—å¤§
 		 System.out.println(threeSum(new int[]{-2,0,1,1,2}));
 	}
 
