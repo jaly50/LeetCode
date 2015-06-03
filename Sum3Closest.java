@@ -8,13 +8,46 @@
  *     sum = num[i]+num[j] +num[k];
  *     if (sum > target) k--;
  *     else j++;
- *  可以用n^2的时间复杂度完成此题   
+ *  鍙互鐢╪^2鐨勬椂闂村鏉傚害瀹屾垚姝ら   
  *   
  */
 import java.util.Arrays;
 
 
 public class Sum3Closest {
+	
+    //鑷繁鍐欑殑o n^2 
+    // 6/3/2015 Wed 7:50 pm
+    
+    public int threeSumClosest(int[] nums, int target) {
+        int n = nums.length;
+        if (n<3) return 0;
+        Arrays.sort(nums);
+        int ans = nums[0]+ nums[1]+ nums[2];
+        int cur=0;
+        for (int i =0; i< nums.length-2; i++) {
+             int lo = i+1, hi = nums.length-1;
+                while (lo < hi) {
+                    cur = nums[i] + nums[lo] +nums[hi];
+                    if (cur ==target) {
+                        return target;
+                    }
+                    if (Math.abs(cur - target) < Math.abs(ans - target)) {
+                        ans = cur;
+                    }
+                    if (cur < target) {
+                        lo++;
+                    }
+                    else hi--;
+                }
+            
+        }
+        return ans;
+        
+    }
+
+	
+	
 	/*
 	 * My own solution: brace search
 	 *  N^3  too slow
