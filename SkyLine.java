@@ -28,6 +28,7 @@ public class Solution {
             //New buildings in || left upper corner
             if (pq.isEmpty() || (i<n && pq.peek().x>= buildings[i][0]) ) {
                 x = buildings[i][0];
+                // Add buildings with the same x(left) value in to the queue
                 while (i<n && buildings[i][0] ==x) {
                     pq.add(new Point(buildings[i][1], buildings[i][2]));
                     i++;
@@ -35,7 +36,9 @@ public class Solution {
             }
             // right upper corner
             else {
+            	//pq.peek() to look up for the highest building point
                 x = pq.peek().x;
+                // pq.peek().y would always smaller than x's y; so we only compare xs
                 while (!pq.isEmpty() && pq.peek().x<=x) {
                     pq.poll();
                     }
