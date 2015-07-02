@@ -5,6 +5,7 @@ Methods:
    1. sort and take the median: o(1) space, o(nlogn) time
    2. map to keep each counts of ele: o(n) space, o(n) time
    3. majority voting algorithm: o(1) space, o(n) time
+   4. bit malipulation: o(1) space, o(n) time
 
 */
 
