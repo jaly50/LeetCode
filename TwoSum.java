@@ -2,6 +2,8 @@
  * Leetcode 41 Two Sum 
  * Date:2014/9/27
  * Given an array of integers, find two numbers such that they add up to a specific target number.
+ * 1. 最基本的思路是t= n^2 space= o(1), 对array中的任意两个进行配对
+ *  2. t= o(nlogn), space = o(n) sort the array, then narrow down from sides to middle
  */
 import java.util.Arrays;
 import java.util.HashMap;
