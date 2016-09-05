@@ -27,5 +27,18 @@ public class TwoSum {
 		// TODO Auto-generated method stub
         System.out.println(Arrays.toString(twoSum(new int[]{2,7,11,15},9)));
 	}
+	
+	// 9/4/2016 Sunday
+	// t = o(n), S = o(n), HashMap stores (target-ele, indice(ele))
+	// We can also store [ele, indice(ele)], then ask if map.containsKey(target-ele) then return( map.get(target-ele), i)
+    public int[] twoSum(int[] nums, int target) {
+        Map map = new HashMap<Integer, Integer>();
+        for (int i=0; i<nums.length; i++) {
+            if (map.containsKey(nums[i]) )
+            	return new int[]{(int) map.get(nums[i]), i};
+            else map.put(target-nums[i], i);
+        }
+        return new int[]{0,0};
+       }
 
 }
