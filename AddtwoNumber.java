@@ -21,6 +21,35 @@
  */
 public class AddtwoNumber {
 	private int num;
+	
+	
+    // 9/4/2016 Sunday t= o(n) space= o(n) ListNode
+    public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+        ListNode dumb = new ListNode(-1);
+        ListNode head = dumb;
+        // 可以用一个sum代替carry, value两个变量
+        int carry=0, value=0;
+        while (l1!=null || l2!=null) {
+        //l1==null和下面的l1!=null 可以合并
+        //l12==null和l2!=null可以合并
+        if (l1 == null) value = l2.val+carry;
+        else if(l2==null) value = l1.val+carry;
+        else value = l1.val + l2.val + carry;
+        carry = value/10;
+        head.next = new ListNode(value % 10);
+        head = head.next;
+        if (l1!=null) 
+          l1 = l1.next;
+        if (l2!=null) 
+          l2 = l2.next;
+        }
+        // The last carry value
+        if (carry >0) head.next= new ListNode(carry);
+        return dumb.next;
+        
+    }
+    
+    
    	public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode node = null, pre = null, begin = null;
         int number = 0, pos = 0;
