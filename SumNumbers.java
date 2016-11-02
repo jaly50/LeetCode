@@ -1,3 +1,5 @@
+package LeetCode;
+
 /*
  * Leetcode 118 Sum Root to Leaf Numbers
  * Easy algorithm
