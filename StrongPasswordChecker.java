@@ -1,3 +1,6 @@
+// Tue 8:22AM 11/15/2016
+// Reference: True
+//字符中处理，分情况讨论： len<6时，insert+replacement, len>6: replacement, len>20:deletion+replacement
 public class Solution {
     public int strongPasswordChecker(String s) {
         int len = s.length();
