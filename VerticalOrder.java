@@ -1,4 +1,4 @@
-    // reference: False, Scarlett Chen, 10:19 Wed
+    // reference: False, Scarlett Chen, 10:19 Wed  11/23/2016
     //要求要从上往下，所以必须用宽搜
     public List<List<Integer>> verticalOrder(TreeNode root) {
         List<List<Integer>> res = new LinkedList<List<Integer>>();
