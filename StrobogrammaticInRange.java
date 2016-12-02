@@ -1,5 +1,6 @@
 // Scarlett chen; 12/1/2016; 8:08pm, redwood shore; 248. Strobogrammatic Number III
-//自己写哒 难嘛不难，代码有点长，corner case要考虑的比较多， 用了 strobogrammatic number 1 &2 的方法 beat 50%
+//自己写哒 难嘛不难，代码有点长，corner case要考虑的比较多， 用了 strobogrammatic number 1 &2 的方法 beat 50%..优点是中间的长度们都用了math的方法，缺点是代码有点长
+//我看到别人有直接dfs找到全部可能性的，挺简短的也不错
 public class Solution {
         char[] ones = new char[]{'0', '1', '8'};
     String[] twos = new String[]{"00","11","88", "69","96"};
